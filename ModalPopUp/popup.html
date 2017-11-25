@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  
+  <title>pop up</title>
+  <style>
+    .modal {
+        display:none;
+        position:fixed;
+        z-index: inherit 1;
+        left:0;
+        top:0;
+        width:100%;
+        height: 100%;
+        overflow:auto;
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */ 
+
+    }
+    /* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+    
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#popupSelect{
+  width:40%;
+  margin-left:20%;
+}
+  </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
+<body>
+<!-- Trigger/Open The Modal -->
+<button id="myBtn">open modal</button>
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+            <span  class="close">close &times;</span>
+            <select id="popupSelect">
+                    <option value="0 first">first</option>
+                    <option value="1 second">Second</option>
+                    <option value="2 third">Third</option>
+                </select>
+    </div>
+
+</div>
+<script>
+// Get the modal
+let modal = document.getElementById('myModal');
+
+// Get the button that opens the modal
+let btn = document.getElementById('myBtn');
+// Get the <span> element that closes the modal
+let spanClose = document.getElementsByClassName('close')[0];
+
+// When the user clicks on the button, open the modal 
+btn.onclick = function(){
+    modal.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+spanClose.onclick = function(){
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(ev){
+    if(ev.target == modal){
+        modal.style.display == "none";
+    }
+}
+
+//getting dropdown list
+let list = document.getElementById('popupSelect');
+//getting the selected value
+list.onchange = function(){
+  let result = this.options[this.selectedIndex].text;
+  let idto = this.options[this.selectedIndex].value;
+   console.log('texta ' +result);
+   console.log('valueto ' + idto);
+}
+</script>
+</body>
+</html>

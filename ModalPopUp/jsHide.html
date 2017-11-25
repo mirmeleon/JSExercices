@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>js</title>
+</head>
+<body>
+    <style>
+    .hideDiv {
+        border: 2px solid green;
+        width: 250px;
+        padding:10px;
+        margin-top: 30px;
+    }
+    </style>
+    //difference between style = hidden and display none: if we leave it hidden the element doesn't desapear form the page just we don't 
+    //see it; demek zapazva prostranstvoto det zaema i ne izmestva drugite elementi
+ <button class="btnHide" onClick="hideThisDiv()">hide it</button>
+ <div class="hideDiv">
+     <span>this will hide</span>
+    </div>         
+<div>
+    <p>div2</p>
+</div>
+
+    <script>
+    
+    function hideThisDiv(){
+      console.log('entered');
+      
+       let div = document.getElementsByClassName("hideDiv");
+       let i = 0;
+       for(i = 0; i < div.length; i++){
+            div[i].style.backgroundColor = "red";
+            
+            if(div[i].style.display !== 'none'){
+                div[i].style.display = 'none';
+            } else {
+                div[i].style.display = 'block';
+            }
+            
+       } 
+};
+    
+    </script>
+</body>
+</html>
